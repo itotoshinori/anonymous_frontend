@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+// @ts-expect-error globals.css is handled by Next.js at build time.
 import "./globals.css";
+import Providers from "./providers";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +26,47 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Providers>
+          {children}
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              style: {
+                fontFamily: "var(--font-geist-sans)",
+                background: "#",
+                color: "#",
+                fontSize: "14px",
+                padding: "12px 16px",
+                borderRadius: "8px",
+                boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
+              },
+              success: {
+                style: {
+                  background: "#16a34a",
+                  color: "#fff",
+                },
+                iconTheme: {
+                  primary: "#",
+                  secondary: "#",
+                },
+              },
+              error: {
+                style: {
+                  background: "#dc2626",
+                  color: "#fff",
+                },
+                iconTheme: {
+                  primary: "#",
+                  secondary: "#",
+                },
+              },
+            }}
+          />
+        </Providers>
       </body>
     </html>
   );
