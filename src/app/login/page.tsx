@@ -29,6 +29,7 @@ export default function LoginPage() {
             toast.success("ログインに成功しました");
             router.push("/management")
         } catch (error) {
+            console.error("ログインエラー:", error);
             toast.error("ログインに失敗しました");
         }
     }
