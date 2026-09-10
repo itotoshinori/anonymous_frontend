@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-// @ts-expect-error globals.css is handled by Next.js at build time.
 import "./globals.css";
 import Providers from "./providers";
 import { Toaster } from "react-hot-toast";
