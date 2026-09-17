@@ -30,7 +30,7 @@ export default function LoginPage() {
             router.push("/management")
         } catch (error) {
             console.error("ログインエラー:", error);
-            toast.error("ログインに失敗しました");
+            toast.error("ログインに失敗しました。メールアドレス及びパスワードを確認してください");
         }
     }
 
